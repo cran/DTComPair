@@ -1,7 +1,7 @@
 # --------------------------------------------------------
 # Description: Functions for DTComPair-package
 # Author: C. Stock
-# Last modified: Jan 26, 2013
+# Last modified: Jan 28, 2013
 # --------------------------------------------------------
 
 
@@ -121,7 +121,7 @@ acc.1test <-  function(tab, alpha, testname, ...) {
   names(pdlr) <- c("est","se.ln","lcl","ucl")
   ndlr.est <- (1-sens.est)/spec.est
   ndlr.se.log <- sqrt((sens.est/tab[2,1])+((1-spec.est)/
-                 tab[1,2]))
+                 tab[2,2]))
   ndlr.lcl <- exp(log(ndlr.est)-qnorm(1-alpha/2)*ndlr.se.log)
   ndlr.ucl <- exp(log(ndlr.est)+qnorm(1-alpha/2)*ndlr.se.log)
   ndlr <- c(ndlr.est,ndlr.se.log,ndlr.lcl,ndlr.ucl)
@@ -396,12 +396,12 @@ sesp.mcnemar <- function(tab, alpha, cont.corr) {
 # --------------------------------------------------------
 # sesp.exactbinom
 # --------------------------------------------------------
-sesp.exactbinom <- function(tab, alpha) {
+sesp.exactbinom <- function(tab) {
   # check arguments
   if (missing(tab)) stop("Table is missing.")
   if (class(tab) != "tab.paired") 
     stop("Table must be of class 'tab.paired'")
-  if (missing(alpha)) alpha <- 0.05
+  #if (missing(alpha)) alpha <- 0.05
   acc <- acc.paired(tab)
   # sensitivity
   se.1 <- acc$Test1$sensitivity["est"]; se.2 <- acc$Test2$sensitivity["est"]
@@ -427,8 +427,8 @@ sesp.exactbinom <- function(tab, alpha) {
   specificity <- list(sp.1,sp.2,diff.spec,p.value)
   # results
   method <- "exactbinom"
-  results <- list(sensitivity,specificity,method,alpha)
-  names(results) <- c("sensitivity","specificity","method","alpha")
+  results <- list(sensitivity,specificity,method) #,alpha)
+  names(results) <- c("sensitivity","specificity","method")#,"alpha")
   names(results$sensitivity) <- c("test1","test2","diff","p.value")
   names(results$specificity) <- c("test1","test2","diff","p.value")
   return(results)

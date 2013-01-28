@@ -5,9 +5,10 @@ vers <- paste("R package version", meta$Version)
 
 citEntry(entry="Manual",
          title = "DTComPair: comparison of binary diagnostic tests in a paired study design",
-         author = personList(as.person("Christian Stock")),
+         author = personList(as.person("Christian Stock"),
+as.person("Thomas Hielscher")),
          year = year,
          note = vers,
          textVersion =
-           paste("Christian Stock (",year,"). DTComPair: comparison of binary diagnostic tests in a paired study design. ", vers, ".", sep="")
+           paste("Christian Stock, Thomas Hielscher (",year,"). DTComPair: comparison of binary diagnostic tests in a paired study design. ", vers, ".", sep="")
 )

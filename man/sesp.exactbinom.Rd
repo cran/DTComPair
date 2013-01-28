@@ -5,16 +5,15 @@
 \description{Performs an exact binomial test for differences in sensitivity and specificity of two binary diagnostic tests in a paired study design.
 }
 \usage{
-sesp.exactbinom(tab, alpha)
+sesp.exactbinom(tab) %, alpha)
 }
 \arguments{
   \item{tab}{An object of class \code{\link{tab.paired}}.
 }
-  \item{alpha}{Significance level alpha for 100(1-alpha)\%-confidence intervals, the default is 0.05.
-}
+ % \item{alpha}{Significance level alpha for 100(1-alpha)\%-confidence intervals, the default is 0.05.}
 }
 \details{
-The function performs a standard exact binomial test, as described e.g. in Zhou et al. (2011).
+The function performs a standard exact binomial test as described e.g. in Zhou et al. (2011).
 
 An exact binomial test is recommended when the number of patients with differing results for test 1 and test 2 (discordant pairs) is small, i.e. <20 (Zhou et al., 2011). 
 }
@@ -31,8 +30,8 @@ A list containing:
    \code{test2} (specificity of test 2), 
    \code{diff} (the difference in specificity, computed as \code{test2 - test1})
    and the corresponding \code{p.value}. }
-\item{method}{The name of the method used to compare sensitivity and specificity, here \dQuote{\code{exactbinom}}. }
-\item{alpha}{The level alpha used to compute 100(1-alpha)\%-confidence intervals, the default is 0.05.}
+\item{method}{The name of the method used to compare sensitivity and specificity, here \dQuote{exactbinom}. }
+%\item{alpha}{The level alpha used to compute 100(1-alpha)\%-confidence intervals, the default is 0.05.}
 }
 
 \references{

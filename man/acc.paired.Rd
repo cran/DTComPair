@@ -18,15 +18,16 @@ acc.paired(tab, alpha, ...)
 The calculation of accuracy measures and their variances follows standard methodology, e.g. described in Pepe (2003) or Zhou et al. (2011).
 }
 
-\value{An list of class \code{\link{tab.paired}}.
+\value{An list of class \code{\link{acc.paired}}:
 \item{Test1}{A list of class \code{\link{acc.1test}} containing results and accuracy estimates of Test 1.}
 \item{Test2}{A list of class \code{\link{acc.1test}} containing results and accuracy estimates of Test 2.}
 }
 
 \references{
+Pepe, M. (2003). The statistical evaluation of medical tests for classifcation and prediction. Oxford Statistical Science Series. Oxford University Press, 1st edition.
+
 Zhou, X., Obuchowski, N., and McClish, D. (2011). Statistical Methods in Diagnostic Medicine. Wiley Series in Probability and Statistics. John Wiley & Sons, Hoboken, New Jersey, 2nd edition.
 
-Pepe, M. (2003). The statistical evaluation of medical tests for classifcation and prediction. Oxford Statistical Science Series. Oxford University Press, 1st edition.
 }
 
 \seealso{

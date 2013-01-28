@@ -15,9 +15,9 @@ pv.wgs(tab)
 
 \value{
 A list containing:
-\item{ppv}{A list containing \code{test1} (the positive predictive value of test 1), \code{test2} (the positive predictive value of test 2), \code{diff} (the difference in positive predictive values, computed as \code{test2 - test1}, the \code{test.statistic} and the corresponding \code{p.value}. }
-\item{npv}{A list containing \code{test1} (the negative predictive value of test 1), \code{test2} (the negative predictive value of test 2), \code{diff} (the difference in negative predictive values, computed as \code{test2 - test1}, the \code{test.statistic} and the corresponding \code{p.value}. }
-\item{method}{The name of the method used to compare predictive values, here \dQuote{\code{weighted generalized score statistic (wgs)}}. }
+\item{ppv}{A list with \code{test1} (the positive predictive value of test 1), \code{test2} (the positive predictive value of test 2), \code{diff} (the difference in positive predictive values, computed as \code{test2 - test1}, the \code{test.statistic} and the corresponding \code{p.value}. }
+\item{npv}{A list with \code{test1} (the negative predictive value of test 1), \code{test2} (the negative predictive value of test 2), \code{diff} (the difference in negative predictive values, computed as \code{test2 - test1}, the \code{test.statistic} and the corresponding \code{p.value}. }
+\item{method}{The name of the method used to compare predictive values, here \dQuote{weighted generalized score statistic (wgs)}. }
 }
 
 \references{
@@ -25,7 +25,7 @@ Kosinski, A. S. (2013). A weighted generalized score statistic for comparison of
 
 
 \seealso{
-\code{\link{pv.gs}}, \code{\link{pv.rpv}} and \code{\link{tab.paired}}.
+\code{\link{pv.gs}} and \code{\link{pv.rpv}}.
 }
 
 \examples{

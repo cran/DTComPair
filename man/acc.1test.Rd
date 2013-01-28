@@ -14,13 +14,13 @@ acc.1test(tab, alpha, testname, ...)
   }
   \item{testname}{A character variable containing the name of the diagnostic test. 
   }
-  \item{\dots}{Additional arguments, usually not required.
+  \item{\dots}{Additional arguments (usually not required).
   }
 }
 \details{
-The calculation of accuracy measures and their variances follows standard methodology, e.g. described in Pepe (2003) or Zhou et al. (2011).
+The calculation of accuracy measures and their variances follows standard methodology, e.g. described in Pepe (2003) or Zhou et al. (2011). Confidence intervals for diagnostic likelihood ratios are computed according to Simel et al. (1991).
 }
-\value{An list of class \code{\link{tab.1test}}.
+\value{A list of class \code{\link{acc.1test}}:
 \item{tab}{A contingency table (matrix) of test results; the same \code{tab} that is supplied as an argument. 
  \tabular{lrrr}{
           \tab Diseased \tab Non-diseased \tab Total \cr
@@ -40,9 +40,13 @@ The calculation of accuracy measures and their variances follows standard method
 }
 
 \references{
+Pepe, M. (2003). The statistical evaluation of medical tests for classifcation and prediction. Oxford Statistical Science Series. Oxford University Press, 1st edition.
+
+Simel, D.L., Samsa, G.P., Matchar, D.B. (1991). Likelihood ratios with confidence: sample size estimation for diagnostic test
+studies. \emph{J Clin Epidemiol}, 44(8):763-70.
+
 Zhou, X., Obuchowski, N., and McClish, D. (2011). Statistical Methods in Diagnostic Medicine. Wiley Series in Probability and Statistics. John Wiley & Sons, Hoboken, New Jersey, 2nd edition.
 
-Pepe, M. (2003). The statistical evaluation of medical tests for classifcation and prediction. Oxford Statistical Science Series. Oxford University Press, 1st edition.
 }
 
 \seealso{

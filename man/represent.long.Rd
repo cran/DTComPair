@@ -6,11 +6,11 @@
 represent.long(d, y1, y2)
 }
 \arguments{
-  \item{d}{An integer vector specifying the gold-standard results (1 = presence of disease, 0 = absence of disease).
+  \item{d}{A numeric vector specifying the gold-standard results (1 = presence of disease, 0 = absence of disease).
 }
-  \item{y1}{An integer vector specifying the results of diagnostic test 1 (1 = positive, 0 = negative).
+  \item{y1}{A numeric vector specifying the results of diagnostic test 1 (1 = positive, 0 = negative).
 }
-  \item{y2}{An integer vector specifying the results of diagnostic test 2 (1 = positive, 0 = negative).
+  \item{y2}{An numeric vector specifying the results of diagnostic test 2 (1 = positive, 0 = negative).
 }
 }
 
@@ -21,9 +21,9 @@ In a \emph{wide} representation each subject has 1 record in the dataset contain
 In a \emph{long} representation each subjects has 2 records in the dataset, one for each test. The data format is shown below.
 }
 
-\value{...
+\value{
 A dataframe containing:
-  \item{d}{A numeric vector specifying the patient identifier.}
+  \item{id}{A numeric vector specifying the patient identifier.}
   \item{d}{A numeric vector specifying the gold-standard results (1 = presence of disease, 0 = absence of disease).
 }
   \item{x}{A numeric vector specifying the diagnostic test (1 = test 1, 0 = test 2).

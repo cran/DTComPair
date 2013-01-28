@@ -13,22 +13,22 @@ pv.rpv(tab, alpha)
 
 \value{
 A list containing:
-\item{ppv}{A list containing \code{test1} (the positive predictive value of test 1), \code{test2} (the positive predictive value of test 2), \code{rppv} (the relative positive predictive value, computed as \code{test1 / test2}), \code{se.log.rppv} (the standard error of the logarithm of \code{rppv}),
+\item{ppv}{A list with \code{test1} (the positive predictive value of test 1), \code{test2} (the positive predictive value of test 2), \code{rppv} (the relative positive predictive value, computed as \code{test1 / test2}), \code{se.log.rppv} (the standard error of the logarithm of \code{rppv}),
 \code{lcl.rppv} (the lower confidence limit of \code{rppv}), \code{ucl.rppv} (the upper confidence limit of \code{rppv}), the \code{test.statistic} and the corresponding \code{p.value}. }
-\item{npv}{A list containing \code{test1} (the negative predictive value of test 1), \code{test2} (the negative predictive value of test 2), \code{rnpv} (the relative negative predictive value, computed as \code{test1 / test2}), \code{se.log.rnpv} (the standard error of the logarithm of \code{rnpv}),
+\item{npv}{A list with \code{test1} (the negative predictive value of test 1), \code{test2} (the negative predictive value of test 2), \code{rnpv} (the relative negative predictive value, computed as \code{test1 / test2}), \code{se.log.rnpv} (the standard error of the logarithm of \code{rnpv}),
 \code{lcl.rnpv} (the lower confidence limit of \code{rnpv}), \code{ucl.rnpv} (the upper confidence limit of \code{rnpv}), the \code{test.statistic} and the corresponding \code{p.value}. }
-\item{method}{The name of the method used to compare predictive values, here \dQuote{\code{relative predictive values (rpv)}}. }
+\item{method}{The name of the method used to compare predictive values, here \dQuote{relative predictive values (rpv)}. }
 \item{alpha}{The significance level alpha used to compute 100(1-alpha)\%-confidence intervals for \code{rppv} and \code{rnpv}, the default is 0.05.} 
 }
 
 \references{
-Moskowitz, C.S., and Pepe, M.S. (2006). Comparing the predictive values of diagnostic test: sample size and analysis for paired study designs. \emph{Clin Trials}, 3(3):272-9.
+Moskowitz, C.S., and Pepe, M.S. (2006). Comparing the predictive values of diagnostic tests: sample size and analysis for paired study designs. \emph{Clin Trials}, 3(3):272-9.
 }
 
 %\note{ ~~further notes~~ }
 
 \seealso{
-\code{\link{pv.gs}}, \code{\link{pv.wgs}} and \code{\link{tab.paired}}.
+\code{\link{pv.gs}} and \code{\link{pv.wgs}}.
 }
 
 \examples{

@@ -16,9 +16,9 @@ pv.gs(tab)
 
 \value{
 A list containing:
-\item{ppv}{A list containing \code{test1} (the positive predictive value of test 1), \code{test2} (the positive predictive value of test 2), \code{diff} (the difference in positive predictive values, computed as \code{test2 - test1}), the \code{test.statistic} and the corresponding \code{p.value}. }
-\item{npv}{A list containing \code{test1} (the negative predictive value of test 1), \code{test2} (the negative predictive value of test 2), \code{diff} (the difference in negative predictive values, computed as \code{test2 - test1}), the \code{test.statistic} and the corresponding \code{p.value}. }
-\item{method}{The name of the method used to compare predictive values, here \dQuote{\code{generalized score statistic (gs)}}. }
+\item{ppv}{A list with \code{test1} (the positive predictive value of test 1), \code{test2} (the positive predictive value of test 2), \code{diff} (the difference in positive predictive values, computed as \code{test2 - test1}), the \code{test.statistic} and the corresponding \code{p.value}. }
+\item{npv}{A list with \code{test1} (the negative predictive value of test 1), \code{test2} (the negative predictive value of test 2), \code{diff} (the difference in negative predictive values, computed as \code{test2 - test1}), the \code{test.statistic} and the corresponding \code{p.value}. }
+\item{method}{The name of the method used to compare predictive values, here \dQuote{generalized score statistic (gs)}. }
 }
 
 \references{
@@ -26,7 +26,7 @@ Leisenring, W., Alonzo, T., and Pepe, M. S. (2000). Comparisons of predictive va
 }
 
 \seealso{
-\code{\link{pv.wgs}}, \code{\link{pv.rpv}} and \code{\link{tab.paired}}.
+\code{\link{pv.wgs}} and \code{\link{pv.rpv}}.
 }
 
 \examples{

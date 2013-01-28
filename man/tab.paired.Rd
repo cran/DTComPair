@@ -41,11 +41,16 @@ tab.paired(d, y1, y2, data = NULL, testnames, ...)
 }
 \item{testnames}{The names of the diagnostic tests.}
 }
+
+\note{
+Objects of class \code{\link{tab.paired}} are essential arguments for various functions in the 
+\code{\link{DTComPair}}-package.
+}
+
 \seealso{
 \code{\link{print.tab.paired}}, 
 \code{\link{read.tab.paired}}, 
-\code{\link{tab.1test}},
-\code{\link{acc.paired}}.
+\code{\link{tab.1test}}.
 }
 \examples{
 data(Paired1) # Hypothetical study data 

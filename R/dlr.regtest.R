@@ -1,7 +1,7 @@
 # --------------------------------------------------------
 # Description: Function for DTComPair-package
 # Author: Christian Stock
-# Last modified: Jan 28, 2013
+# Last modified: Jan 29, 2013
 # --------------------------------------------------------
 
 
@@ -22,7 +22,7 @@ dlr.regtest <- function(tab,alpha) {
   # pdlr
   pdlr.1 <- acc$Test1$pdlr["est"]; pdlr.2 <- acc$Test2$pdlr["est"]
   names(pdlr.1) <- NULL; names(pdlr.2) <- NULL  
-  sink('/dev/null')
+  if (.Platform$OS.type=="windows") sink( tempfile() ) else sink('/dev/null')
   suppressMessages(pdlr <- DLR("~ 1","~  x * y.plus","d", d.long,"id",alpha=alpha)$logDLRModel["x",])
   pdlr[c(1,5,6)] <- exp(pdlr[c(1,5,6)])    
   pdlr <- as.list(c(pdlr.1,pdlr.2,pdlr))
@@ -34,7 +34,7 @@ dlr.regtest <- function(tab,alpha) {
   ndlr <- as.list(c(ndlr.1,ndlr.2,ndlr))
   sink()
   # results
-  method <- "DLR regression model based (regtest)"
+  method <- "DLR regression model (regtest)"
   results <- list(pdlr, ndlr, alpha, method)
   names(results) <- c("pdlr","ndlr","alpha", "method")
   names(results$pdlr) <- c("test1","test2","ratio","se.log","test.statistic","p.value","lcl","ucl")

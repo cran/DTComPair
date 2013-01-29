@@ -2,7 +2,7 @@
 \alias{dlr.regtest}
 \title{Differences in Diagnostic Likelihood Ratios}
 \description{
-Performs a test for differences in the ratios of (positive and negative) diagnostic likelihood ratios (DLRs) of two binary diagnostic tests in a paired study using a regression model approach proposed by Gu and Pepe (2009).
+Performs a test for differences in (positive and negative) diagnostic likelihood ratios (DLRs) of two binary diagnostic tests in a paired study using a regression model approach proposed by Gu and Pepe (2009).
 }
 \usage{
 dlr.regtest(tab, alpha)

@@ -21,7 +21,8 @@ A list containing:
 }
 
 \references{
-Kosinski, A. S. (2013). A weighted generalized score statistic for comparison of predictive values of diagnostic tests. \emph{Stat Med}, in press.}
+Kosinski, A.S. (2013). A weighted generalized score statistic for comparison of predictive values of diagnostic tests. \emph{Stat Med}, 32(6):964-77.
+}
 
 
 \seealso{

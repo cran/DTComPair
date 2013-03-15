@@ -348,47 +348,35 @@ represent.long <- function(d, y1, y2) {
 # --------------------------------------------------------
 # sesp.mcnemar
 # --------------------------------------------------------
-sesp.mcnemar <- function(tab, alpha, cont.corr) {
+sesp.mcnemar <- function(tab) {
   # check arguments
   if (missing(tab)) stop("Table is missing.")
   if (class(tab) != "tab.paired") 
     stop("Table must be of class 'tab.paired'")
-  if (missing(alpha)) alpha <- 0.05
-  if (missing(cont.corr)) cont.corr=FALSE
-  if (cont.corr==TRUE) yates<-0.5 else yates<-0
+  # accuracy
   acc <- acc.paired(tab)
   # sensitivity
   se.1 <- acc$Test1$sensitivity["est"]; se.2 <- acc$Test2$sensitivity["est"]
   names(se.1) <- NULL; names(se.2) <- NULL
   diff.sens <- (se.2-se.1); names(diff.sens) <- NULL
   b <- tab$diseased[1,2]; c <- tab$diseased[2,1]
-  X2 <- ((abs(b-c)-yates)^2)/(b+c)
+  X2 <- ((b-c)^2)/(b+c)
   p.value <- 1-pchisq(X2, df=1)
-  se <- sqrt((tab$diseased[1,2] + tab$diseased[2,1]) -
-         (tab$diseased[1,2] - tab$diseased[2,1])**2 / 
-          tab$diseased[3,3] ) / tab$diseased[3,3]
-  diff.cl <- diff.sens+c(-1,1)*qnorm(1-alpha/2)*se
-  names(diff.cl) <- c("lcl","ucl")
-  sensitivity <- list(se.1,se.2,diff.sens,diff.cl,X2,p.value)
+  sensitivity <- list(se.1, se.2, diff.sens, X2, p.value)
   # specificity
   sp.1 <- acc$Test1$specificity["est"]; sp.2 <- acc$Test2$specificity["est"]
   names(sp.1) <- NULL; names(sp.2) <- NULL
   diff.spec <- (sp.2-sp.1); names(diff.spec) <- NULL
   b <- tab$non.diseased[1,2]; c <- tab$non.diseased[2,1]
-  X2 <- ((abs(b-c)-yates)^2)/(b+c)
+  X2 <- ((b-c)^2)/(b+c)
   p.value <- 1-pchisq(X2, df=1)
-  se <- sqrt((tab$non.diseased[1,2] + tab$non.diseased[2,1]) -
-         (tab$non.diseased[1,2] - tab$non.diseased[2,1])**2 / 
-          tab$non.diseased[3,3] ) / tab$non.diseased[3,3]
-  diff.cl <- diff.spec+c(-1,1)*qnorm(1-alpha/2)*se
-  names(diff.cl) <- c("lcl","ucl")
-  specificity <- list(sp.1,sp.2,diff.spec,diff.cl,X2,p.value)
+  specificity <- list(sp.1, sp.2, diff.spec, X2, p.value)
   # results
   method <- "mcnemar"
-  results <- list(sensitivity, specificity, cont.corr, method, alpha)
-  names(results) <- c("sensitivity","specificity","continuity.correction","method","alpha")
-  names(results$sensitivity) <- c("test1","test2","diff","diff.cl","test.statistic","p.value")
-  names(results$specificity) <- c("test1","test2","diff","diff.cl","test.statistic","p.value")
+  results <- list(sensitivity, specificity, method)
+  names(results) <- c("sensitivity","specificity","method")
+  names(results$sensitivity) <- c("test1","test2","diff","test.statistic","p.value")
+  names(results$specificity) <- c("test1","test2","diff","test.statistic","p.value")
   return(results)
 }
 
@@ -401,7 +389,7 @@ sesp.exactbinom <- function(tab) {
   if (missing(tab)) stop("Table is missing.")
   if (class(tab) != "tab.paired") 
     stop("Table must be of class 'tab.paired'")
-  #if (missing(alpha)) alpha <- 0.05
+  # accuracy
   acc <- acc.paired(tab)
   # sensitivity
   se.1 <- acc$Test1$sensitivity["est"]; se.2 <- acc$Test2$sensitivity["est"]
@@ -411,8 +399,6 @@ sesp.exactbinom <- function(tab) {
   k <- min(tab$diseased[1,2], tab$diseased[2,1])
   csum <- 0; for (j in 1:k) csum <- csum+choose(m,j)
   p.value <- 2*csum*(0.5^m)
-  diff.cl <- c(0,0)
-  names(diff.cl) <- c("lcl","ucl")
   sensitivity <- list(se.1,se.2,diff.sens,p.value)
   # specificity
   sp.1 <- acc$Test1$specificity["est"]; sp.2 <- acc$Test2$specificity["est"]
@@ -422,13 +408,11 @@ sesp.exactbinom <- function(tab) {
   k <- min(tab$non.diseased[1,2], tab$non.diseased[2,1])
   csum <- 0; for (j in 1:k) csum <- csum+choose(m,j)
   p.value <- 2*csum*(0.5^m)
-  diff.cl <- c(0,0)
-  names(diff.cl) <- c("lcl","ucl")
   specificity <- list(sp.1,sp.2,diff.spec,p.value)
   # results
   method <- "exactbinom"
-  results <- list(sensitivity,specificity,method) #,alpha)
-  names(results) <- c("sensitivity","specificity","method")#,"alpha")
+  results <- list(sensitivity,specificity,method) 
+  names(results) <- c("sensitivity","specificity","method")
   names(results$sensitivity) <- c("test1","test2","diff","p.value")
   names(results$specificity) <- c("test1","test2","diff","p.value")
   return(results)

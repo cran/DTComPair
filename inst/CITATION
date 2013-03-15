@@ -11,5 +11,5 @@ as.person("Thomas Hielscher")),
          note = vers,
          url = "http://CRAN.R-project.org/package=DTComPair",
          textVersion =
-           paste("Christian Stock, Thomas Hielscher (",year,"). DTComPair: comparison of binary diagnostic tests in a paired study design. ", vers, ".", "URL: http://CRAN.R-project.org/package=DTComPair", sep="")
+           paste("Christian Stock, Thomas Hielscher (",year,"). DTComPair: comparison of binary diagnostic tests in a paired study design. ", vers, ".", " URL: http://CRAN.R-project.org/package=DTComPair", sep="")
 )

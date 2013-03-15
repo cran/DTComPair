@@ -31,7 +31,6 @@ A list containing:
    \code{diff} (the difference in specificity, computed as \code{test2 - test1})
    and the corresponding \code{p.value}. }
 \item{method}{The name of the method used to compare sensitivity and specificity, here \dQuote{exactbinom}. }
-%\item{alpha}{The level alpha used to compute 100(1-alpha)\%-confidence intervals, the default is 0.05.}
 }
 
 \references{

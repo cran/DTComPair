@@ -5,15 +5,15 @@
 \title{Comparison of Binary Diagnostic Tests in a Paired Study Design}
 
 \description{
-This package contains functions to compare the accuracy of two binary diagnostic tests in a \dQuote{paired} study design, i.e. when each test is applied to each subject in the study. The current version is a \emph{beta}-version that has to undergo further testing and validation.
+This package contains functions to compare the accuracy of two binary diagnostic tests in a \dQuote{paired} study design, i.e. when each test is applied to each subject in the study. 
 }
 
 \details{
 \tabular{ll}{
 Package: \tab DTComPair\cr
 Type: \tab Package\cr
-Version: \tab 0.93\cr
-Date: \tab 2013-01-29\cr
+Version: \tab 1.00\cr
+Date: \tab 2013-03-15\cr
 License: \tab GNU >=2\cr
 }
 
@@ -33,13 +33,13 @@ For a general introduction into the evaluation of diagnostic tests see e.g. Pepe
 \author{
 Christian Stock, Thomas Hielscher
 
-Maintainer: Christian Stock <c.stock@Dkfz-Heidelberg.de>
+Maintainer: Christian Stock <stock@imbi.uni-heidelberg.de>
 }
 
 \references{
 Gu, W. and Pepe, M. S. (2009). Estimating the capacity for improvement in risk prediction with a marker. \emph{Biostatistics}, 10(1):172-86.
 
-Kosinski, A.S. (2013). A weighted generalized score statistic for comparison of predictive values of diagnostic tests. \emph{Stat Med}, in press.
+Kosinski, A.S. (2013). A weighted generalized score statistic for comparison of predictive values of diagnostic tests. \emph{Stat Med}, 32(6):964-77.
 
 Leisenring, W., Alonzo, T., and Pepe, M.S. (2000). Comparisons of predictive values of binary medical diagnostic tests for paired designs. \emph{Biometrics}, 56(2):345-51.
 

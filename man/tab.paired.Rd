@@ -1,6 +1,6 @@
 \name{tab.paired}
 \alias{tab.paired}
-\title{Results from Two Binary Diagnostic Tests in a Paired Study Design}
+\title{Tabulate Results from Two Binary Diagnostic Tests in a Paired Study Design}
 \description{
 Produces contingency tables of results from two binary diagnostic tests evaluated in a paired study design. 
 }

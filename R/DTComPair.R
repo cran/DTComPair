@@ -93,7 +93,7 @@ acc.1test <-  function(tab, alpha, testname, ...) {
   sensitivity <- c(sens.est,sens.se,sens.lcl,sens.ucl)
   names(sensitivity) <- c("est","se","lcl","ucl")
   spec.est <- tab[2,2]/tab[3,2]
-  spec.se <- sqrt((tab[2,1]*tab[2,2])/(tab[3,2]^3))
+  spec.se <- sqrt((tab[1,2]*tab[2,2])/(tab[3,2]^3))
   spec.lcl <- spec.est-qnorm(1-alpha/2)*spec.se
   spec.ucl <- spec.est+qnorm(1-alpha/2)*spec.se 
   specificity <- c(spec.est,spec.se,spec.lcl,spec.ucl)

@@ -92,6 +92,11 @@ sesp.diff.ci <- function(tab, ci.method, alpha, cont.corr) {
     spec.diff.se <- NA    
     spec.diff.cl <- sort((-1)*c(tango$conf.int[1], tango$conf.int[2]))
   } 
+  # diff estimate
+  if ((sens.diff < sens.diff.cl[1]) | (sens.diff > sens.diff.cl[2])) 
+    sens.diff <- -sens.diff
+  if ((spec.diff < spec.diff.cl[1]) | (spec.diff > spec.diff.cl[2])) 
+    spec.diff <- -spec.diff
   # results
   sensitivity <- c(sens.1, sens.2, sens.diff, sens.diff.se, sens.diff.cl)
   names(sensitivity) <- c("test1","test2","diff","diff.se","diff.lcl","diff.ucl")

@@ -1,9 +1,10 @@
-e69c5ac11155b6fbbea3b02bd6a0b6ae *DESCRIPTION
+75775f2ab0b4c681df19f9795abe752d *DESCRIPTION
 e99baec7004cfb7d85f06b7333f3602f *NAMESPACE
+a9294094f1098ff164f80acc2e655300 *NEWS
 6ad48788b9704aefb84a0940ac38ed5d *R/DLR.R
-c4e243b4cd57266378291557b92abdf9 *R/DTComPair.R
+d74adb3272f274643e1a6b599823fffd *R/DTComPair.R
 eed994a5e8c1a3cc8968a855319f47d6 *R/dlr.regtest.R
-5482039157fd53a917e6d78666999bcc *R/sesp.diff.ci.R
+949525117d76c107779afc3a4ade57ca *R/sesp.diff.ci.R
 9b278a63c817aa93fd146262edbb92f3 *data/Paired1.RData
 e32ef006098cb1ca380440251d9abddd *inst/CITATION
 5ccc0446a93b1e1a7369080ed523d250 *man/DLR.Rd
@@ -11,7 +12,7 @@ e32ef006098cb1ca380440251d9abddd *inst/CITATION
 22cdaa5141d19e073c0149443c35ef20 *man/acc.1test.Rd
 d98d06f637bda1943d02f6d2547cea33 *man/acc.paired.Rd
 f761a9ce634c123e738bd04aa7ce9923 *man/dlr.regtest.Rd
-ab80713b102ae4d5e9dd8f918c5f6966 *man/dtcompair-package.rd
+2e738c798f74416a5a3953ab57496898 *man/dtcompair-package.rd
 cc109d93e6234f982721c8b4e7a11b4e *man/generate.paired.Rd
 3944d387d2936c82d1efa1e519515ebe *man/print.acc.1test.Rd
 1db580f30966c40b8c550866ea0ecf06 *man/print.acc.paired.Rd
@@ -23,7 +24,7 @@ e729d5fbab4c17760eae4f82e5361412 *man/pv.rpv.Rd
 3d3c735e3c9f55214bb4cb56dbbd68ce *man/read.tab.1test.Rd
 ffb96e62eacf717a9133b7bcfa854fcc *man/read.tab.paired.Rd
 e16b5a4413e0bb0f3549bb0c3038222d *man/represent.long.Rd
-f69df3604ab5b8fd481173c349b62056 *man/sesp.diff.ci.Rd
+ce2da3b99c01290d773f7a5964e9e6c2 *man/sesp.diff.ci.Rd
 ec88448b876d600100200b7c1aa42374 *man/sesp.exactbinom.Rd
 cd9807ecde439929e361a0113206761c *man/sesp.mcnemar.Rd
 5a3ece22efa1c9031699a8d0ecf81215 *man/tab.1test.Rd

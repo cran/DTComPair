@@ -10,7 +10,7 @@ sesp.diff.ci(tab, ci.method, alpha, cont.corr)
 \arguments{
   \item{tab}{An object of class \code{\link{tab.paired}}.
   }
-  \item{ci.method}{The available methods are \dQuote{\code{wald}}, \dQuote{\code{agresti-min}}, \dQuote{\code{bonett-price}}, and \dQuote{\code{tango}}, the default is \dQuote{\code{wald}}.
+  \item{ci.method}{The available methods are \dQuote{\code{wald}} (Altman, 1991), \dQuote{\code{agresti-min}} (Agresti and Min, 2005), \dQuote{\code{bonett-price}} (Bonett and Price, 2011), and \dQuote{\code{tango}} (Tango, 1998), the default is \dQuote{\code{wald}}.
   }
   \item{alpha}{Significance level alpha for 100(1-alpha)\%-confidence intervals for the difference in sensitivity and specificity, the default is 0.05.
   }
@@ -18,9 +18,8 @@ sesp.diff.ci(tab, ci.method, alpha, cont.corr)
   }
 }
 
-\details{ 
-details
-}
+%\details{ 
+% }
 
 \value{
 A list containing:
@@ -52,7 +51,7 @@ Agresti, A. and Min, Y. (2005) Simple improved confidence intervals for comparin
 
 Bonett, D.G., and Price, R.M. (2011). Adjusted Wald confidence intervals for a difference of binomial proportions based on paired data. \emph{J Educ Behav Stat}, 37(4): 479-488.
 
-Fleiss, J.L., Levin, B., and Paik, M.C. (2003). Statistical methods for rates and proportions. John Wiley & Sons, Hoboken, New Jersey, 3rd edition.
+%Fleiss, J.L., Levin, B., and Paik, M.C. (2003). Statistical methods for rates and proportions. John Wiley & Sons, Hoboken, New Jersey, 3rd edition.
 
 Tango, T. (1998) Equivalence test and confidence interval for the difference in proportions for the paired-sample design. \emph{Stat Med}, 17(8): 891-908.
 }

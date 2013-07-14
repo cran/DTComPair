@@ -12,20 +12,20 @@ This package contains functions to compare the accuracy of two binary diagnostic
 \tabular{ll}{
 Package: \tab DTComPair\cr
 Type: \tab Package\cr
-Version: \tab 1.00\cr
-Date: \tab 2013-03-15\cr
+Version: \tab 1.0.1\cr
+Date: \tab 2013-07-14\cr
 License: \tab GNU >=2\cr
 }
 
-The accuracy measures that can be compared in the present version are sensitivity, specificity, (positive and negative) predictive values, and (positive and negative) diagnostic likelihood ratios.  
+The accuracy measures that can be compared in the present version are sensitivity, specificity, positive and negative predictive values, and positive and negative diagnostic likelihood ratios.  
 
 It is required that results from a binary gold-standard test are also available. 
 
-Methods for comparison of sensitivity and specificity: McNemar test (McNemar, 1947) and exact binomial test.
+Methods for comparison of sensitivity and specificity: McNemar test (McNemar, 1947) and exact binomial test. Further, several methods to compute confidence intervals for differences in sensitivity and specificity are implemented.
 
-Methods for comparison of (positive and negative) predictive values: generalized score statistic (Leisenring et al., 2000), weighted generalized score statistic (Kosinski, 2013) and comparison of relative predictive values (Moskowitz and Pepe, 2006).
+Methods for comparison of positive and negative predictive values: generalized score statistic (Leisenring et al., 2000), weighted generalized score statistic (Kosinski, 2013) and comparison of relative predictive values (Moskowitz and Pepe, 2006).
 
-Methods for comparison of (positive and negative) diagnostic likelihood ratios: a regression model approach (Gu and Pepe, 2009).
+Methods for comparison of positive and negative diagnostic likelihood ratios: a regression model approach (Gu and Pepe, 2009).
 
 For a general introduction into the evaluation of diagnostic tests see e.g. Pepe (2003) or Zhou et al. (2011).
 }
@@ -55,13 +55,13 @@ Zhou, X., Obuchowski, N., and McClish, D. (2011). Statistical Methods in Diagnos
 \seealso{
 Data management functions: \code{\link{tab.1test}}, \code{\link{tab.paired}}, \code{\link{read.tab.paired}}, \code{\link{generate.paired}} and \code{\link{represent.long}}.
 
-Computation of standard accuracy measures: \code{\link{acc.1test}} and \code{\link{acc.paired}}.
+Computation of standard accuracy measures for a single test: \code{\link{acc.1test}} and \code{\link{acc.paired}}.
 
-Comparison of sensitivity and specificity: \code{\link{sesp.mcnemar}} and \code{\link{sesp.exactbinom}}.
+Comparison of sensitivity and specificity: \code{\link{sesp.mcnemar}}, \code{\link{sesp.exactbinom}} and \code{\link{sesp.diff.ci}}.
 
-Comparison of (positive and negative) predictive values: \code{\link{pv.gs}}, \code{\link{pv.wgs}} and \code{\link{pv.rpv}}.
+Comparison of positive and negative predictive values: \code{\link{pv.gs}}, \code{\link{pv.wgs}} and \code{\link{pv.rpv}}.
 
-Comparison of (positive and negative) diagnostic likelihood ratios: \code{\link{dlr.regtest}} and \code{\link{DLR}}.
+Comparison of positive and negative diagnostic likelihood ratios: \code{\link{dlr.regtest}} and \code{\link{DLR}}.
 }
 
 \examples{

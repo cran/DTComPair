@@ -1,0 +1,7 @@
+
+                CHANGES IN DTComPair VERSION 1.0.1 (2013-07-14)
+
+    o    corrected an error in function 'acc.1test' concerning computation of the standard error of specificity
+         (detected by M. Wolbers - many thanks!)
+
+    o    minor documentation update

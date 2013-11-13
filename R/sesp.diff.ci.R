@@ -1,7 +1,7 @@
 # --------------------------------------------------------
 # Description: Function for DTComPair-package
 # Author: C. Stock
-# Last modified: Feb 05, 2013
+# Last modified: Nov 12, 2013
 # --------------------------------------------------------
 
 # --------------------------------------------------------
@@ -80,7 +80,7 @@ sesp.diff.ci <- function(tab, ci.method, alpha, cont.corr) {
   }  
   # tango confidence intervals
   if (ci.method == "tango") {
-    require(PropCIs)
+    #require(PropCIs)
     # sensitivity    
     b <- tab$diseased[1,2]; c <- tab$diseased[2,1]; n <- tab$diseased[3,3]
     tango <- scoreci.mp(b, c, n, conf.level=1-alpha)    

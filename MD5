@@ -1,10 +1,10 @@
-75775f2ab0b4c681df19f9795abe752d *DESCRIPTION
+07fa7f0df2d7be48683e622e67293be7 *DESCRIPTION
 e99baec7004cfb7d85f06b7333f3602f *NAMESPACE
-a9294094f1098ff164f80acc2e655300 *NEWS
-6ad48788b9704aefb84a0940ac38ed5d *R/DLR.R
-d74adb3272f274643e1a6b599823fffd *R/DTComPair.R
+42ed039c3adfb8658324e7ee123158ee *NEWS
+1b0ca09185f1916a974458daddd9380a *R/DLR.R
+2e1abbdbf37e3f99317e110089f7d82c *R/DTComPair.R
 eed994a5e8c1a3cc8968a855319f47d6 *R/dlr.regtest.R
-949525117d76c107779afc3a4ade57ca *R/sesp.diff.ci.R
+1343f2085dee2a65a3e8e9e294fde619 *R/sesp.diff.ci.R
 9b278a63c817aa93fd146262edbb92f3 *data/Paired1.RData
 e32ef006098cb1ca380440251d9abddd *inst/CITATION
 5ccc0446a93b1e1a7369080ed523d250 *man/DLR.Rd
@@ -24,8 +24,8 @@ e729d5fbab4c17760eae4f82e5361412 *man/pv.rpv.Rd
 3d3c735e3c9f55214bb4cb56dbbd68ce *man/read.tab.1test.Rd
 ffb96e62eacf717a9133b7bcfa854fcc *man/read.tab.paired.Rd
 e16b5a4413e0bb0f3549bb0c3038222d *man/represent.long.Rd
-ce2da3b99c01290d773f7a5964e9e6c2 *man/sesp.diff.ci.Rd
-ec88448b876d600100200b7c1aa42374 *man/sesp.exactbinom.Rd
+8ed333e7d6dd72c07207b56a4250b891 *man/sesp.diff.ci.Rd
+761df06f1d7275473c8bfc986482f31a *man/sesp.exactbinom.Rd
 cd9807ecde439929e361a0113206761c *man/sesp.mcnemar.Rd
 5a3ece22efa1c9031699a8d0ecf81215 *man/tab.1test.Rd
 e5a4c540843f069de4ee88df4fcdab4a *man/tab.paired.Rd

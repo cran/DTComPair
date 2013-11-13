@@ -18,8 +18,9 @@ sesp.diff.ci(tab, ci.method, alpha, cont.corr)
   }
 }
 
-%\details{ 
-% }
+\details{
+For details and recommendations see Newcombe (2012) and Wenzel and Zapf (2013).
+}
 
 \value{
 A list containing:
@@ -47,13 +48,20 @@ A list containing:
 \references{
 Altman, D.G. (1991). Practical statistics for medical research. Chapman & Hall, London.
 
-Agresti, A. and Min, Y. (2005) Simple improved confidence intervals for comparing matched proportions. \emph{Stat Med}, 24(5): 729-40.
+Agresti, A. and Min, Y. (2005). Simple improved confidence intervals for comparing matched proportions. \emph{Stat Med}, 24(5): 729-40.
 
 Bonett, D.G., and Price, R.M. (2011). Adjusted Wald confidence intervals for a difference of binomial proportions based on paired data. \emph{J Educ Behav Stat}, 37(4): 479-488.
 
 %Fleiss, J.L., Levin, B., and Paik, M.C. (2003). Statistical methods for rates and proportions. John Wiley & Sons, Hoboken, New Jersey, 3rd edition.
 
-Tango, T. (1998) Equivalence test and confidence interval for the difference in proportions for the paired-sample design. \emph{Stat Med}, 17(8): 891-908.
+Newcombe R.G. (2012). Confidence intervals for proportions and related measures of effect size. Chapman and Hall/CRC Biostatistics Series.
+
+Tango, T. (1998). Equivalence test and confidence interval for the difference in proportions for the paired-sample design. \emph{Stat Med}, 17(8): 891-908.
+
+Wenzel, D., and Zapf, A. (2013).
+Difference of two dependent sensitivities and specificities: comparison of various approaches.
+\emph{Biom J}, 55(5): 705-718.
+
 }
 
 %\seealso{

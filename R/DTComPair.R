@@ -1,7 +1,7 @@
 # --------------------------------------------------------
 # Description: Functions for DTComPair-package
 # Author: C. Stock
-# Last modified: Jan 28, 2013
+# Last modified: Nov 12, 2013
 # --------------------------------------------------------
 
 
@@ -397,7 +397,7 @@ sesp.exactbinom <- function(tab) {
   diff.sens <- (se.2-se.1); names(diff.sens) <- NULL
   m <- tab$diseased[1,2] + tab$diseased[2,1]
   k <- min(tab$diseased[1,2], tab$diseased[2,1])
-  csum <- 0; for (j in 1:k) csum <- csum+choose(m,j)
+  csum <- 0; for (j in 0:k) csum <- csum+choose(m,j)
   p.value <- 2*csum*(0.5^m)
   sensitivity <- list(se.1,se.2,diff.sens,p.value)
   # specificity
@@ -406,7 +406,7 @@ sesp.exactbinom <- function(tab) {
   diff.spec <- (sp.2-sp.1); names(diff.spec) <- NULL
   m <- tab$non.diseased[1,2] + tab$non.diseased[2,1]
   k <- min(tab$non.diseased[1,2], tab$non.diseased[2,1])
-  csum <- 0; for (j in 1:k) csum <- csum+choose(m,j)
+  csum <- 0; for (j in 0:k) csum <- csum+choose(m,j)
   p.value <- 2*csum*(0.5^m)
   specificity <- list(sp.1,sp.2,diff.spec,p.value)
   # results

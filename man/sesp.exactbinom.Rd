@@ -13,7 +13,7 @@ sesp.exactbinom(tab) %, alpha)
  % \item{alpha}{Significance level alpha for 100(1-alpha)\%-confidence intervals, the default is 0.05.}
 }
 \details{
-The function performs a standard exact binomial test as described e.g. in Zhou et al. (2011).
+The function performs a standard exact binomial test.
 
 An exact binomial test is recommended when the number of patients with differing results for test 1 and test 2 (discordant pairs) is small, i.e. <20 (Zhou et al., 2011). 
 }

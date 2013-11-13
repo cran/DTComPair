@@ -1,7 +1,7 @@
 DLR <- function(basemodel, augmentedmodel, diseasestatus,
                 dataset, clustervar=NULL, alpha=0.05) {
   
-  require(gee)
+  #require(gee)
   
   ### modelSettings
   d       <- diseasestatus   

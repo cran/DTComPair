@@ -1,7 +1,7 @@
 # --------------------------------------------------------
 # Description: Functions for DTComPair-package
 # Author: C. Stock
-# Last modified: Nov 12, 2013
+# Last modified: Feb 15, 2014
 # --------------------------------------------------------
 
 
@@ -89,26 +89,34 @@ acc.1test <-  function(tab, alpha, testname, ...) {
   sens.est <- tab[1,1]/tab[3,1]
   sens.se <- sqrt((tab[1,1]*tab[2,1])/(tab[3,1]^3))
   sens.lcl <- sens.est-qnorm(1-alpha/2)*sens.se
+    if (sens.lcl<0) sens.lcl <- 0
   sens.ucl <- sens.est+qnorm(1-alpha/2)*sens.se
+    if (sens.ucl>1) sens.ucl <- 1
   sensitivity <- c(sens.est,sens.se,sens.lcl,sens.ucl)
   names(sensitivity) <- c("est","se","lcl","ucl")
   spec.est <- tab[2,2]/tab[3,2]
   spec.se <- sqrt((tab[1,2]*tab[2,2])/(tab[3,2]^3))
   spec.lcl <- spec.est-qnorm(1-alpha/2)*spec.se
+    if (spec.lcl<0) spec.lcl <- 0
   spec.ucl <- spec.est+qnorm(1-alpha/2)*spec.se 
+    if (spec.ucl>1) spec.ucl <- 1
   specificity <- c(spec.est,spec.se,spec.lcl,spec.ucl)
   names(specificity) <- c("est","se","lcl","ucl")
   # predictive values
   ppv.est <- tab[1,1]/tab[1,3]
   ppv.se <- sqrt((tab[1,1]*tab[1,2])/(tab[1,3]^3))
   ppv.lcl <- ppv.est-qnorm(1-alpha/2)*ppv.se
+    if (ppv.lcl<0) ppv.lcl <- 0
   ppv.ucl <- ppv.est+qnorm(1-alpha/2)*ppv.se
+    if (ppv.ucl>1) ppv.ucl <- 1
   ppv <- c(ppv.est,ppv.se,ppv.lcl,ppv.ucl)
   names(ppv) <- c("est","se","lcl","ucl")
   npv.est <- tab[2,2]/tab[2,3]
   npv.se <- sqrt((tab[2,1]*tab[2,2])/(tab[2,3]^3))
   npv.lcl <- npv.est-qnorm(1-alpha/2)*npv.se
+    if (npv.lcl<0) npv.lcl <- 0
   npv.ucl <- npv.est+qnorm(1-alpha/2)*npv.se
+    if (npv.ucl>1) npv.ucl <- 1
   npv <- c(npv.est,npv.se,npv.lcl,npv.ucl)
   names(npv) <- c("est","se","lcl","ucl")
   # diagnostic likelihood ratios

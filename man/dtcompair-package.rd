@@ -12,8 +12,8 @@ This package contains functions to compare the accuracy of two binary diagnostic
 \tabular{ll}{
 Package: \tab DTComPair\cr
 Type: \tab Package\cr
-Version: \tab 1.0.1\cr
-Date: \tab 2013-07-14\cr
+Version: \tab 1.0.3\cr
+Date: \tab 2014-02-15\cr
 License: \tab GNU >=2\cr
 }
 

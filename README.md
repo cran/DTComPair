@@ -36,6 +36,12 @@ if (!require("remotes")) {install.packages("remotes")}
 remotes::install_github("chstock/DTComPair")
 ```
 
+## Scope
+
+Diagnostic accuracy measures that can be computed and compared are
+sensitivity, specificity, positive and negative predictive values, and
+positive and negative diagnostic likelihood ratios.
+
 ## Getting Started
 
 **Determine the accuracy of one diagnostic test**
@@ -71,9 +77,11 @@ print(a2)
 
 **Compare the accuracy of two diagnostic tests**
 
+***Compute accuracy measures***
+
 ``` r
 b1 <- tab.paired(d=d, y1=y1, y2=y2, data=Paired1)
-print(b1)
+print(b1) 
 # Two binary diagnostic tests (paired design)
 # 
 # Test1: 'y1'
@@ -122,9 +130,135 @@ print(b2)
 # NDLR  0.3060507 0.0885996 0.2572629 0.3640906
 ```
 
+***Compare predictive values***
+
+Test based on weighted generalized score statistic:
+
+``` r
+pv.wgs(b1) 
+# $ppv
+# $ppv$test1
+# [1] 0.8253638
+# 
+# $ppv$test2
+# [1] 0.8654822
+# 
+# $ppv$diff
+# [1] 0.04011841
+# 
+# $ppv$test.statistic
+# [1] 5.465887
+# 
+# $ppv$p.value
+# [1] 0.0193912
+# 
+# 
+# $npv
+# $npv$test1
+# [1] 0.7662338
+# 
+# $npv$test2
+# [1] 0.6540881
+# 
+# $npv$diff
+# [1] 0.1121457
+# 
+# $npv$test.statistic
+# [1] 16.5354
+# 
+# $npv$p.value
+# [1] 4.775012e-05
+# 
+# 
+# $method
+# [1] "weighted generalized score statistic (wgs)"
+```
+
+Estimation and test of relative predictive values:
+
+``` r
+pv.rpv(b1)
+# $ppv
+# $ppv$test1
+# [1] 0.8253638
+# 
+# $ppv$test2
+# [1] 0.8654822
+# 
+# $ppv$rppv
+# [1] 0.9536462
+# 
+# $ppv$se.log.rppv
+# [1] 0.01991247
+# 
+# $ppv$lcl.rppv
+# [1] 0.9171445
+# 
+# $ppv$ucl.rppv
+# [1] 0.9916006
+# 
+# $ppv$test.statistic
+# [1] -2.383559
+# 
+# $ppv$p.value
+# [1] 0.01714612
+# 
+# 
+# $npv
+# $npv$test1
+# [1] 0.7662338
+# 
+# $npv$test2
+# [1] 0.6540881
+# 
+# $npv$rnpv
+# [1] 1.171454
+# 
+# $npv$se.log.rnpv
+# [1] 0.03783679
+# 
+# $npv$lcl.rnpv
+# [1] 1.087723
+# 
+# $npv$ucl.rnpv
+# [1] 1.261629
+# 
+# $npv$test.statistic
+# [1] 4.182314
+# 
+# $npv$p.value
+# [1] 2.885568e-05
+# 
+# 
+# $Sigma
+#              log.rppv     log.rnpv
+# log.rppv 0.0003965065 0.0004024578
+# log.rnpv 0.0004024578 0.0014316223
+# 
+# $method
+# [1] "relative predictive values (rpv)"
+# 
+# $alpha
+# [1] 0.05
+```
+
 ## Citing `DTComPair`
 
-To cite `DTComPair` in publications please use: Stock C, Hielscher T,
-Discacciati A (2023). DTComPair: comparison of binary diagnostic tests
-in a paired study design. R package, version 1.2.0. URL:
-<https://CRAN.R-project.org/package=DTComPair>.
+``` r
+citation("DTComPair")
+# To cite DTComPair in publications use:
+# 
+#   Stock C, Hielscher T, Discacciati A (2023). DTComPair: comparison of
+#   binary diagnostic tests in a paired study design. R package, version
+#   1.2.0. URL: https://CRAN.R-project.org/package=DTComPair.
+# 
+# A BibTeX entry for LaTeX users is
+# 
+#   @Misc{,
+#     title = {{DTComPair}: comparison of binary diagnostic tests in a paired study design},
+#     author = {Christian Stock and Thomas Hielscher and Andrea Discacciati},
+#     year = {2023},
+#     note = {{R} package, version 1.2.0. {URL}: {https://CRAN.R-project.org/package=DTComPair}.},
+#     encoding = {UTF-8},
+#   }
+```

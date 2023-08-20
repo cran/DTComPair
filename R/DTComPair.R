@@ -1,7 +1,7 @@
 # --------------------------------------------------------
 # Description: Functions for DTComPair-package
-# Author: C. Stock
-# Last modified: Feb 15, 2014
+# Author: C. Stock and A. Discacciati 
+# Last modified: 7 May 2023
 # --------------------------------------------------------
 
 
@@ -370,7 +370,7 @@ sesp.mcnemar <- function(tab) {
   b <- tab$diseased[1,2]; c <- tab$diseased[2,1]
   X2 <- ((b-c)^2)/(b+c)
   p.value <- 1-pchisq(X2, df=1)
-  sensitivity <- list(se.1, se.2, diff.sens, X2, p.value)
+  sensitivity <- c(se.1, se.2, diff.sens, X2, p.value)
   # specificity
   sp.1 <- acc$Test1$specificity["est"]; sp.2 <- acc$Test2$specificity["est"]
   names(sp.1) <- NULL; names(sp.2) <- NULL
@@ -378,7 +378,7 @@ sesp.mcnemar <- function(tab) {
   b <- tab$non.diseased[1,2]; c <- tab$non.diseased[2,1]
   X2 <- ((b-c)^2)/(b+c)
   p.value <- 1-pchisq(X2, df=1)
-  specificity <- list(sp.1, sp.2, diff.spec, X2, p.value)
+  specificity <- c(sp.1, sp.2, diff.spec, X2, p.value)
   # results
   method <- "mcnemar"
   results <- list(sensitivity, specificity, method)
@@ -407,7 +407,7 @@ sesp.exactbinom <- function(tab) {
   k <- min(tab$diseased[1,2], tab$diseased[2,1])
   csum <- 0; for (j in 0:k) csum <- csum+choose(m,j)
   p.value <- 2*csum*(0.5^m)
-  sensitivity <- list(se.1,se.2,diff.sens,p.value)
+  sensitivity <- c(se.1,se.2,diff.sens,p.value)
   # specificity
   sp.1 <- acc$Test1$specificity["est"]; sp.2 <- acc$Test2$specificity["est"]
   names(sp.1) <- NULL; names(sp.2) <- NULL
@@ -416,7 +416,7 @@ sesp.exactbinom <- function(tab) {
   k <- min(tab$non.diseased[1,2], tab$non.diseased[2,1])
   csum <- 0; for (j in 0:k) csum <- csum+choose(m,j)
   p.value <- 2*csum*(0.5^m)
-  specificity <- list(sp.1,sp.2,diff.spec,p.value)
+  specificity <- c(sp.1,sp.2,diff.spec,p.value)
   # results
   method <- "exactbinom"
   results <- list(sensitivity,specificity,method) 
@@ -440,7 +440,7 @@ pv.gs <- function(tab) {
   ## ppv
   ppv.1 <- acc$Test1$ppv["est"]; ppv.2 <- acc$Test2$ppv["est"]
   names(ppv.1) <- NULL; names(ppv.2) <- NULL
-  diff.ppv <- abs(ppv.1-ppv.2); names(diff.ppv) <- NULL
+  diff.ppv <- ppv.2-ppv.1; names(diff.ppv) <- NULL
   # proportion of positive tests of type 2
   z.bar <- sum(c(tab$diseased[1,3], tab$non.diseased[1,3])) /
            sum(c(tab$diseased[1,c(1,3)], tab$diseased[2,1],
@@ -462,11 +462,11 @@ pv.gs <- function(tab) {
                    tab$non.diseased[2,1]*(0-z.bar)^2 )
   t.ppv <- numerator/denominator
   p.value <- 1-pchisq(t.ppv, df=1) 
-  ppv <- list(ppv.1, ppv.2, diff.ppv, t.ppv, p.value)
+  ppv <- c(ppv.1, ppv.2, diff.ppv, t.ppv, p.value)
   ## npv
   npv.1 <- acc$Test1$npv["est"]; npv.2 <- acc$Test2$npv["est"]
   names(npv.1) <- NULL; names(npv.2) <- NULL
-  diff.npv <- abs(npv.1-npv.2); names(diff.npv) <- NULL
+  diff.npv <- npv.2-npv.1; names(diff.npv) <- NULL
   # proportion of negative tests of type 2
   z.bar <- sum(c(tab$diseased[2,3], tab$non.diseased[2,3])) /
            sum(c(tab$diseased[2,c(2,3)], tab$diseased[1,2],
@@ -488,7 +488,7 @@ pv.gs <- function(tab) {
                    tab$diseased[1,2]*(0-z.bar)^2 )
   t.npv <- numerator/denominator
   p.value <- 1-pchisq(t.npv, df=1)  
-  npv <- list(npv.1, npv.2, diff.npv, t.npv, p.value)
+  npv <- c(npv.1, npv.2, diff.npv, t.npv, p.value)
   # results
   method <- "generalized score statistic (gs)"
   results <- list(ppv,npv,method)
@@ -511,7 +511,7 @@ pv.wgs <- function(tab) {
   ## ppv
   ppv.1 <- acc$Test1$ppv["est"]; ppv.2 <- acc$Test2$ppv["est"]
   names(ppv.1) <- NULL; names(ppv.2) <- NULL
-  diff.ppv <- abs(ppv.1-ppv.2); names(diff.ppv) <- NULL
+  diff.ppv <- ppv.2-ppv.1; names(diff.ppv) <- NULL
   ppv.pooled <- (tab$diseased[1,1]*2 + tab$diseased[1,2] + tab$diseased[2,1]) /
     (tab$diseased[1,3] + tab$non.diseased[1,3] + tab$diseased[3,1] + tab$non.diseased[3,1])
   numerator <- diff.ppv**2
@@ -522,11 +522,11 @@ pv.wgs <- function(tab) {
        ( 1/ (tab$diseased[3,1] + tab$non.diseased[3,1]))   )
   t.ppv <- numerator/denominator
   p.value <- 1-pchisq(t.ppv, df=1)  
-  ppv <- list(ppv.1, ppv.2, diff.ppv, t.ppv, p.value)
+  ppv <- c(ppv.1, ppv.2, diff.ppv, t.ppv, p.value)
   ## npv
   npv.1 <- acc$Test1$npv["est"]; npv.2 <- acc$Test2$npv["est"]
   names(npv.1) <- NULL; names(npv.2) <- NULL  
-  diff.npv <- abs(npv.1-npv.2); names(diff.npv) <- NULL  
+  diff.npv <- npv.2-npv.1; names(diff.npv) <- NULL  
   npv.pooled <- (tab$non.diseased[2,2]*2 + tab$non.diseased[1,2] + tab$non.diseased[2,1]) /
     (tab$diseased[2,3] + tab$non.diseased[2,3] + tab$diseased[3,2] + tab$non.diseased[3,2])
   numerator <- diff.npv**2
@@ -537,7 +537,7 @@ pv.wgs <- function(tab) {
        ( 1/ (tab$diseased[3,2] + tab$non.diseased[3,2])))
   t.npv <- numerator/denominator
   p.value <- 1-pchisq(t.npv, df=1)  
-  npv <- list(npv.1, npv.2, diff.npv, t.npv, p.value)  
+  npv <- c(npv.1, npv.2, diff.npv, t.npv, p.value)  
   # results
   method <- "weighted generalized score statistic (wgs)"
   results <- list(ppv,npv,method)
@@ -571,7 +571,7 @@ pv.rpv <- function(tab, alpha) {
   # rppv
   ppv.1 <- acc$Test1$ppv["est"]; ppv.2 <- acc$Test2$ppv["est"]
   names(ppv.1) <- NULL; names(ppv.2) <- NULL
-  rel.ppv <- ppv.1/ppv.2; names(rel.ppv) <- NULL
+  rel.ppv <- ppv.2/ppv.1; names(rel.ppv) <- NULL
   sigma2.p <- (1/((p5+p7)*(p5+p6))) *
     (p6*(1-ppv.1) + p5*(ppv.1-ppv.2) +
        + 2*(p7+p3)*ppv.2*ppv.1 + p7*(1-3*ppv.2)  )
@@ -580,11 +580,11 @@ pv.rpv <- function(tab, alpha) {
   ucl <- exp(log(rel.ppv) + qnorm(1-alpha/2)*se.log.rel.ppv)
   t.ppv <- log(rel.ppv) / se.log.rel.ppv
   p.value <- 2*pnorm(-abs(t.ppv))
-  ppv <- list(ppv.1, ppv.2, rel.ppv, se.log.rel.ppv, lcl, ucl, t.ppv, p.value)
+  ppv <- c(ppv.1, ppv.2, rel.ppv, se.log.rel.ppv, lcl, ucl, t.ppv, p.value)
   # rnpv
   npv.1 <- acc$Test1$npv["est"]; npv.2 <- acc$Test2$npv["est"]
   names(npv.1) <- NULL; names(npv.2) <- NULL  
-  rel.npv <- npv.1/npv.2; names(rel.ppv) <- NULL
+  rel.npv <- npv.2/npv.1; names(rel.ppv) <- NULL
   sigma2.n <- (1/((p2+p4)*(p3+p4))) *
     ( npv.1*(-p3+p4-2*(p4+p8)*npv.2) + 
         (p2+p3) - npv.2*(p2-p4) )
@@ -593,7 +593,7 @@ pv.rpv <- function(tab, alpha) {
   ucl <- exp(log(rel.npv) + qnorm(1-alpha/2)*se.log.rel.npv)
   t.npv <- log(rel.npv) / se.log.rel.npv
   p.value <- 2*pnorm(-abs(t.npv))
-  npv <- list(npv.1, npv.2, rel.npv, se.log.rel.npv, lcl, ucl, t.npv, p.value)
+  npv <- c(npv.1, npv.2, rel.npv, se.log.rel.npv, lcl, ucl, t.npv, p.value)
   sigma.pn <- 
     (((p1+p2)*p6)/((p5+p6)*(p1+p2+p5+p6)*(p2+p4+p6+p8))) +
     (((p6+p8)*p2)/((p2+p4)*(p1+p2+p5+p6)*(p2+p4+p6+p8))) +
@@ -645,7 +645,7 @@ pv.rpv <- function(tab, alpha) {
 #' rpv.results <- pv.rpv(paired.layout)
 #' ellipse.data <- ellipse.pv.rpv(rpv.results)
 #' if(interactive()){
-#'   plot(ellipse.data$ellipse, type = "l", ylim = c(-0.25, 0.40), xlim = c(-0.25, 0.20))
+#'   plot(ellipse.data$ellipse, type = "l", ylim = c(-0.4, 0.2), xlim = c(-0.2, 0.2))
 #'   points(ellipse.data$centre[1], ellipse.data$centre[2], col = "red", pch = 19)
 #'   abline(h = 0, v = 0, lty = 3)
 #' }
@@ -653,8 +653,8 @@ pv.rpv <- function(tab, alpha) {
 ellipse.pv.rpv <- function(x, alpha = 0.05, npoints = 100, exponentiate = FALSE) {
   if (!x$method == "relative predictive values (rpv)")
     stop("x must be an object from 'pr.rpv()' function")
-  centre <- c(log.rppv = log(x$ppv$rppv), 
-              log.rnpv = log(x$npv$rnpv))
+  centre <- c(log.rppv = log(x$ppv["rppv"]), 
+              log.rnpv = log(x$npv["rnpv"]))
   Sigma <- x$Sigma
   ellipse <- ellipse::ellipse(x = Sigma , centre = centre, level = 1-alpha, npoints = npoints)
   ret <- list(centre = centre, ellipse = ellipse)

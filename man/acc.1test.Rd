@@ -2,23 +2,58 @@
 \alias{acc.1test}
 \title{Accuracy of a Single Binary Diagnostic Test}
 \description{
-Sensitivity and specificity, (positive and negative) predictive values and (positive and negative) diagnostic likelihood ratios of a single binary diagnostic test.}
-
+  Sensitivity and specificity, (positive and negative) predictive values and 
+  (positive and negative) diagnostic likelihood ratios of a single binary 
+  diagnostic test.
+}
 \usage{
-acc.1test(tab, alpha, testname, ...)
+acc.1test(tab, alpha, testname, method.ci, ...)
 }
 \arguments{
   \item{tab}{An object of class \code{\link{tab.1test}}.
   }
-  \item{alpha}{Significance level alpha for 100(1-alpha)\%-confidence intervals, the default is 0.05.
+  \item{alpha}{Significance level alpha for 100(1-alpha)\%-confidence intervals, 
+  the default is 0.05.
   }
-  \item{testname}{A character variable containing the name of the diagnostic test. 
+  \item{testname}{A character string containing the name of the diagnostic test. 
+  }
+  \item{method.ci}{A character string with the name of the function to compute 
+  the confidence intervals for sensitivity, specificity, and predictive values. 
+  The default is \code{''waldci''} for a Wald asymptotic normal-based confidence 
+  intervals. See 'Details'. 
   }
   \item{\dots}{Additional arguments (usually not required).
   }
 }
 \details{
-The calculation of accuracy measures and their variances follows standard methodology, e.g. described in Pepe (2003) or Zhou et al. (2011). Confidence intervals for diagnostic likelihood ratios are computed according to Simel et al. (1991).
+The calculation of accuracy measures follows standard methodology, e.g. 
+described in Pepe (2003) or Zhou et al. (2011). 
+
+The confidence intervals for sensitivity, specificity, and predictive values are 
+computed using the methodology implemented in the function passed to the 
+argument \code{method.ci}. 
+
+Available options are: 
+
+\enumerate{
+  \item \code{waldci} - Wald asymptotic normal-based confidence interval; the 
+  default, 
+  \item \code{logitci} - asymptotic normal-based confidence interval on the 
+  logit scale and then back-transformed, 
+  \item \code{exactci} - Clopper-Pearson exact confidence interval, 
+  \item \code{add4cici} - Agresti-Coull add-4 confidence interval, 
+  \item \code{addz2ci} - Agresti-Coull add-z^2/2 confidence interval, 
+  \item \code{blakerci} - Blaker exact confidence interval, 
+  \item \code{scoreci} - Wilson score confidence interval, 
+  \item \code{midPci} - mid-P confidence interval. 
+}
+
+Options (3) to (8) are based on the homonymous functions from the \code{{PropCIs}} 
+package. Please see the respective package documentation for more details.
+
+Confidence intervals for diagnostic likelihood ratios are computed according to 
+Simel et al. (1991).
+
 }
 \value{A list of class \code{\link{acc.1test}}:
 \item{tab}{A contingency table (matrix) of test results; the same \code{tab} that is supplied as an argument. 
@@ -36,7 +71,9 @@ The calculation of accuracy measures and their variances follows standard method
 \item{pdlr }{A numeric vector containing the estimated positive diagnostic likelihood ratio (\code{est}), the standard error of the logarithm of the positive diagnostic likelihood ratio (\code{se.ln}), the lower confidence limit (\code{lcl}) and the upper confidence limit (\code{ucl}).}
 \item{ndlr }{A numeric vector containing the estimated negative diagnostic likelihood ratio (\code{est}), the standard error of the logarithm of the negative diagnostic likelihood ratio (\code{se.ln}), the lower confidence limit (\code{lcl}) and the upper confidence limit (\code{ucl}).}
 \item{alpha }{The significance level alpha used to compute 100(1-alpha)\%-confidence intervals, the default is 0.05.}
-\item{testname }{A character variable containing the name of the diagnostic test. }
+\item{testname }{A character string containing the name of the diagnostic test. }
+\item{method.ci }{A character string describing the method used to compute the confidence intervals for sensitivity, specificity, and predictive values.}
+
 }
 
 \references{
@@ -59,4 +96,6 @@ data(Paired1) # Hypothetical study data
 a1 <- tab.1test(d=d, y=y1, data=Paired1)
 a2 <- acc.1test(a1)
 print(a2)
+a3 <- acc.1test(a1, method="exactci", conf.level=0.99)
+print(a3)
 }
